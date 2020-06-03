@@ -5,7 +5,7 @@ defmodule BlujayApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", BlujayApiWeb do
+  scope "/api" do
     pipe_through :api
 
     forward "/graphiql",
