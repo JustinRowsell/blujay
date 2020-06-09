@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bulma/css/bulma.css"
             ],
             "scripts": []
           },
@@ -82,8 +83,7 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
-          "options": {
-          }
+          "options": {}
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -111,6 +111,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "blujay"
+    }
+  },
+  "defaultProject": "blujay",
+  "cli": {
+    "analytics": "3ffac7ef-78a5-44ef-a008-1b9bea280a04"
+  }
 }
