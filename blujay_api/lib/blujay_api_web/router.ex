@@ -2,10 +2,11 @@ defmodule BlujayApiWeb.Router do
   use BlujayApiWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
   end
 
-  scope "/api" do
+  scope "/" do
     pipe_through :api
 
     forward "/graphiql",
@@ -14,5 +15,9 @@ defmodule BlujayApiWeb.Router do
       interface: :simple,
       context: %{pubsub: BlujayApiWeb.Endpoint},
       json_codec: Jason
+
+    forward "/",
+      Absinthe.Plug,
+      schema: BlujayApiWeb.Schema
   end
 end

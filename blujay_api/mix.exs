@@ -46,6 +46,7 @@ defmodule BlujayApi.MixProject do
       {:absinthe_ecto, "~> 0.1.3"},
       {:absinthe_relay, "~> 1.4"},
       {:absinthe_phoenix, "~> 1.4.2"},
+      {:cors_plug, "~> 1.5"},
     ]
   end
 

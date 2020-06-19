@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrackService } from 'src/app/services/track/track.service';
 
 @Component({
   selector: 'app-track-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _trackService: TrackService) { }
 
   ngOnInit(): void {
+    this._trackService.loadTracks();
   }
 
 }
