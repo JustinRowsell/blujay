@@ -8,7 +8,7 @@ defmodule BlujayApiWeb.Schema do
     field :title, non_null(:string)
     field :file, non_null(:string)
     field :description, non_null(:string)
-    field :image, non_null(:string)
+    field :image, :string
     field :price, non_null(:float)
   end
 

@@ -16,6 +16,6 @@ defmodule BlujayApi.Tracks.Track do
   def changeset(track, attrs) do
     track
     |> cast(attrs, [:title, :description, :image, :price, :file])
-    |> validate_required([:title, :description, :image, :price, :file])
+    |> validate_required([:title, :description, :price, :file])
   end
 end

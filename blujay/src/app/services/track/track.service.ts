@@ -31,10 +31,10 @@ export class TrackService {
       `,
     })
     .valueChanges.pipe(
-      map(v => v.data)
-    )
-    .subscribe(result => {
-      console.log(result);
+      map(v => v.data),
+      map((v: any) => v.allTracks)
+    ).subscribe((tracks: Track[]) => {
+      this._tracks.next(tracks);
     });
 
   }
