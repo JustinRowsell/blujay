@@ -1,22 +1,22 @@
 <div class="card" *ngFor="let track of tracks | async">
-    <div class="card-content">
-      <p class="title">
-        {{track.title}}
-      </p>
-      <p class="subtitle">
-        {{track.description}}
-      </p>
-    </div>
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span>
-          View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-        </span>
-      </p>
-      <p class="card-footer-item">
-        <span>
-          Share on <a href="#">Facebook</a>
-        </span>
-      </p>
-    </footer>
+  <div class="card-image">
+    <figure class="image is-48x48">
+      <img src="{{track.image}}" alt="Track image">
+    </figure>
   </div>
+  <div class="card-content">
+    <p class="title">
+      {{track.title}}
+    </p>
+    <p class="subtitle">
+      {{track.description}}
+    </p>
+  </div>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+      </span>
+    </p>
+  </footer>
+</div>
