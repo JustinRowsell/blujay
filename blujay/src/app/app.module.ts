@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TrackListComponent } from './components/track-list/track-list.component';
 import { environment } from 'src/environments/environment';
+import { TrackListHeroComponent } from './components/track-list-hero/track-list-hero.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    TrackListComponent
+    TrackListComponent,
+    TrackListHeroComponent
   ],
   imports: [
     BrowserModule,

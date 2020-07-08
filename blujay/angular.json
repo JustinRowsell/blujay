@@ -29,7 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bulma/css/bulma.css"
+              "src/bjstyles.scss"
             ],
             "scripts": []
           },
