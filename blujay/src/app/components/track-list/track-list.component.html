@@ -1,25 +1,26 @@
 <div class="columns">
   <div class="column" *ngFor="let arr of tracksArr | async">
-    <div class="card" *ngFor="let track of arr">
+    <div class="card" *ngFor="let track of arr" style="height: 100%;">
       <div class="card-image">
         <figure class="image is-3by2">
           <img src="{{track.image}}" alt="Track image">
         </figure>
       </div>
       <div class="card-content">
-        <p class="title">
+        <p class="title is-4">
           {{track.title}}
         </p>
-        <p class="subtitle">
+        <p class="subtitle is-6">
           {{track.description}}
         </p>
       </div>
       <footer class="card-footer">
-        <p class="card-footer-item">
-          <span>
-            View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-          </span>
-        </p>
+        <p class="buttons card-footer-item is-right">
+          <button class="button">
+            <span class="icon is-medium has-text-info">
+              <i class="fas fa-cart-plus"></i>
+            </span>
+          </button>
       </footer>
     </div>
   </div>
