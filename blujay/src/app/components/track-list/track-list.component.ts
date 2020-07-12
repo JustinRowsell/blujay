@@ -12,14 +12,14 @@ import { reverse } from 'dns';
 })
 export class TrackListComponent implements OnInit {
 
-  tracksArr: Observable<Array<Track[]>>;
+  tracksArr$: Observable<Array<Track[]>>;
   columnCount = 4;
 
   constructor(private _trackService: TrackService) { }
 
   ngOnInit(): void {
     this._trackService.loadTracks();
-    this.tracksArr = this._trackService.tracks.pipe(
+    this.tracksArr$ = this._trackService.tracks$.pipe(
       map(tracks => {
         const len = Math.floor((tracks.length + 1) / this.columnCount);
         if (len === 0) {

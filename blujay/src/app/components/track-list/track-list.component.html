@@ -1,5 +1,5 @@
 <div class="columns">
-  <div class="column" *ngFor="let arr of tracksArr | async">
+  <div class="column" *ngFor="let arr of tracksArr$ | async">
     <div class="card" *ngFor="let track of arr" style="height: 100%;">
       <div class="card-image">
         <figure class="image is-3by2">
