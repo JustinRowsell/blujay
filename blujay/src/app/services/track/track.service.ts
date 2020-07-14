@@ -37,7 +37,7 @@ export class TrackService {
     ).subscribe((tracks: Track[]) => {
       this._tracks.next(tracks);
     }, (err) => {
-      this._toastService.sendMessage('We\'re Unable to load the tracks right now. Try again later.', 'is-danger')
+      this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.', 'is-danger');
       console.error(err);
     });
 

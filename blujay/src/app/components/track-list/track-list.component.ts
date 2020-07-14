@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Track } from 'src/app/models/track';
 import { map, tap } from 'rxjs/operators';
 import { reverse } from 'dns';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 
 @Component({
   selector: 'app-track-list',
@@ -15,7 +17,8 @@ export class TrackListComponent implements OnInit {
   tracksArr$: Observable<Array<Track[]>>;
   columnCount = 4;
 
-  constructor(private _trackService: TrackService) { }
+  constructor(private _trackService: TrackService, private _cartService: CartService,
+              private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this._trackService.loadTracks();
@@ -38,8 +41,12 @@ export class TrackListComponent implements OnInit {
           chunks[j].push(tracks[tracks.length - (j + 1)]);
         }
         return chunks;
-      }),
-      tap(what => console.log(what))
+      })
     );
+  }
+
+  addToCart(track: Track) {
+    this._cartService.addToCart(track);
+    this._toastService.sendMessage('More heat in the cart.', 'is-success');
   }
 }
