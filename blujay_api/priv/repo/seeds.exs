@@ -29,3 +29,21 @@ Track |> Repo.delete_all
 %Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
        description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
        |> Repo.insert!
+%Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
+       description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
+       |> Repo.insert!
+%Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
+       description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
+       |> Repo.insert!
+%Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
+       description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
+       |> Repo.insert!
+%Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
+       description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
+       |> Repo.insert!
+%Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
+       description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
+       |> Repo.insert!
+%Track{file: "https://www.wavsource.com/snds_2020-06-10_7014036401687385/tv/south_park/good_night.wav",
+       description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}
+       |> Repo.insert!

@@ -4,3 +4,28 @@
     top:67px;
     right:1%;
 }
+
+.bj-footer {
+  padding: 0.2em !important;
+  bottom: 0.2em;
+}
+
+.bj-card {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 33%;
+}
+
+.bj-card .card-content {
+  flex: auto;
+}
+
+.bj-content {
+  max-height: 45px;
+  margin-bottom: 0;
+}
+
+.bj-title {
+  padding-bottom: 0;
+}
