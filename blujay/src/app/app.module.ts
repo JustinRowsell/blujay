@@ -17,6 +17,7 @@ import { TrackListHeroComponent } from './components/track-list-hero/track-list-
 import { HomeGraphicComponent } from './components/home-graphic/home-graphic.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { BadgeComponent } from './components/badge/badge.component';
+import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
     TrackListHeroComponent,
     HomeGraphicComponent,
     ToastComponent,
-    BadgeComponent
+    BadgeComponent,
+    AudioPlayerComponent
   ],
   imports: [
     BrowserModule,

@@ -6,18 +6,18 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ToastService {
-  
-  private _message: BehaviorSubject<Message> = new BehaviorSubject(null);
-  message$ = this._message.asObservable();
+
+  private message: BehaviorSubject<Message> = new BehaviorSubject(null);
+  message$ = this.message.asObservable();
 
   constructor() { }
 
   sendMessage(content: string, style: string) {
     const msg = new Message(content, style);
-    this._message.next(msg);
+    this.message.next(msg);
   }
 
   clearMessage() {
-    this._message.next(null);
+    this.message.next(null);
   }
 }

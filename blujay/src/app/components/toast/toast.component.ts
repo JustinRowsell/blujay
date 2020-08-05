@@ -12,13 +12,13 @@ export class ToastComponent implements OnInit {
   message$: Observable<Message>;
   style: string;
 
-  constructor(private _toastService: ToastService) { }
+  constructor(private toastService: ToastService) { }
 
   ngOnInit(): void {
-    this.message$ = this._toastService.message$;
+    this.message$ = this.toastService.message$;
   }
 
   clear(): void {
-    this._toastService.clearMessage();
+    this.toastService.clearMessage();
   }
 }
