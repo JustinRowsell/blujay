@@ -1,9 +1,10 @@
+import {Apollo, gql} from 'apollo-angular';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Track } from 'src/app/models/track';
-import { Apollo } from 'apollo-angular';
+
 import { map } from 'rxjs/operators';
-import gql from 'graphql-tag';
+
 import { ToastService } from '../toast/toast.service';
 
 @Injectable({
