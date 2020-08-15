@@ -10,7 +10,6 @@ export class AudioPlayerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // code here - https://codepen.io/luke__duncan/pen/dpZVOr/
+    // https://www.npmjs.com/package/ngx-audio-player
   }
-
 }
