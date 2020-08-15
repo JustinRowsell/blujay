@@ -5,10 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,6 +17,7 @@ import { HomeGraphicComponent } from './components/home-graphic/home-graphic.com
 import { ToastComponent } from './components/toast/toast.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
 
 const routes: Routes = [
   {
@@ -46,7 +43,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgxAudioPlayerModule
   ],
   providers: [{
     provide: APOLLO_OPTIONS,
