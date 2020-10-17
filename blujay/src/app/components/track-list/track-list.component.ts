@@ -23,12 +23,14 @@ export class TrackListComponent implements OnInit {
     this.trackService.loadTracks();
     this.tracksArr$ = this.trackService.tracks$.pipe(
       map(tracks => {
+        console.log(tracks.map(t => t.file));
+
         const len = Math.floor((tracks.length + 1) / this.columnCount);
         if (len === 0) {
           return [[]];
         }
         const rem = tracks.length % this.columnCount;
-        console.log(len);
+
         const chunks = [];
         let i = 0;
         const n = tracks.length;

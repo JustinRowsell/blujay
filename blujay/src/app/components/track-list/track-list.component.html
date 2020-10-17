@@ -17,16 +17,16 @@
         </div>
       </div>
       <footer class="card-footer">
-        <app-audio-player [displayPlayList]="true" [displayTitle]="true"
+        <app-audio-player [displayPlayList]="false" [displayTitle]="false"
           [trackLink]="track.file" [trackTitle]="track.title" [displayVolumeControls]="false"
           ></app-audio-player>
-        <div class="buttons card-footer-item is-right bj-footer">
+        <!-- <div class="buttons card-footer-item is-right bj-footer">
           <button class="button bj-button" (click)="addToCart(track)">
             <span class="icon is-medium has-text-info">
               <i class="fas fa-cart-plus"></i>
             </span>
           </button>
-        </div>
+        </div> -->
       </footer>
     </div>
   </div>
