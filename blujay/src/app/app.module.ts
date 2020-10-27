@@ -18,6 +18,7 @@ import { ToastComponent } from './components/toast/toast.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { StripeModule } from 'stripe-angular';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgxAudioPlayerModule
+    NgxAudioPlayerModule,
+    StripeModule.forRoot("pk_test_51HgjeuFVImSmLfhbqA6cMTbmM2fzhhwdOgnsLK2r7nHEcCF2aQc8xvvaiYJ0KDSFQHwg5CCHxZSS3Yj0GMoT3TSx00puBCO4Ee")
   ],
   providers: [{
     provide: APOLLO_OPTIONS,
