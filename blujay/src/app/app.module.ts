@@ -18,7 +18,11 @@ import { ToastComponent } from './components/toast/toast.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
-import { StripeModule } from 'stripe-angular';
+import { StripePaymentComponent } from './components/stripe-payment/stripe-payment.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   {
@@ -38,7 +42,8 @@ const routes: Routes = [
     HomeGraphicComponent,
     ToastComponent,
     BadgeComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    StripePaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,10 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     NgxAudioPlayerModule,
-    StripeModule.forRoot("pk_test_51HgjeuFVImSmLfhbqA6cMTbmM2fzhhwdOgnsLK2r7nHEcCF2aQc8xvvaiYJ0KDSFQHwg5CCHxZSS3Yj0GMoT3TSx00puBCO4Ee")
+    NoopAnimationsModule,
+    FormsModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [{
     provide: APOLLO_OPTIONS,
