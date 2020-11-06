@@ -41,6 +41,9 @@ export class TrackService {
       this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.', 'is-danger');
       console.error(err);
     });
+  }
 
+  addTrackToCart(track: Track) {
+    // how do I update an object in an observable array?
   }
 }

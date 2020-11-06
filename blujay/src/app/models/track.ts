@@ -5,5 +5,5 @@ export class Track {
   image: string;
   price: number;
   title: string;
-  inCart = false;
+  inCart: boolean;
 }

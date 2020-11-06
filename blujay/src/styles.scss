@@ -50,6 +50,7 @@ $blujay-theme: mat-light-theme((
   display: flex;
   flex-direction: column;
   height: 33%;
+  max-height: 350px;
 }
 
 .bj-card .card-content {

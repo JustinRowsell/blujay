@@ -17,7 +17,7 @@ constructor(
       @Inject(MAT_DIALOG_DATA) private data: any,
       private dialogRef: MatDialogRef<StripePaymentComponent>,
   ) {
-      this._totalAmount = data['totalAmount'];
+      this._totalAmount = data.totalAmount;
   }
 ngOnDestroy() {
       if (this.card) {

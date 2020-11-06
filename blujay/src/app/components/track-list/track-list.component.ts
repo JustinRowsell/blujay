@@ -14,7 +14,7 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 export class TrackListComponent implements OnInit {
 
   tracksArr$: Observable<Array<Track[]>>;
-  columnCount = 4;
+  columnCount = 3;
 
   constructor(private trackService: TrackService, private cartService: CartService,
               private toastService: ToastService) { }
