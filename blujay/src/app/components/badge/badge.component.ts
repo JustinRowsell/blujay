@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-badge',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeComponent implements OnInit {
 
-  count = 0;
+  @Input() arr: Observable<any[]>;
+  count: number;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.arr.subscribe((list) => {
+      this.count = list.length;
+    });
   }
 
 }
