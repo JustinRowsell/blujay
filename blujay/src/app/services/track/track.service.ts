@@ -36,14 +36,30 @@ export class TrackService {
       map(v => v.data),
       map((v: any) => v.allTracks)
     ).subscribe((tracks: Track[]) => {
-      this._tracks.next(tracks);
+      // copy tracks so objects are mutable
+      const deepCopyTracks = tracks.map(t => Object.assign({}, t, {inCart: false}));
+      this._tracks.next(deepCopyTracks);
     }, (err) => {
       this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.', 'is-danger');
       console.error(err);
     });
   }
 
-  addTrackToCart(track: Track) {
-    // how do I update an object in an observable array?
+  trackAddedToCart(id: number) {
+    this._updateInCart(id, true);
+  }
+
+  trackRemovedFromCart(id: number) {
+    this._updateInCart(id, false);
+  }
+
+  _updateInCart(id: number, inCart: boolean) {
+    const tracks = this._tracks.value;
+    for (const t of tracks) {
+      if (+t.id === +id){
+        t.inCart = inCart;
+      }
+    }
+    this._tracks.next(tracks);
   }
 }

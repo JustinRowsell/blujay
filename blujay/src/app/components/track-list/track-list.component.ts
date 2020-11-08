@@ -23,8 +23,6 @@ export class TrackListComponent implements OnInit {
     this.trackService.loadTracks();
     this.tracksArr$ = this.trackService.tracks$.pipe(
       map(tracks => {
-        console.log(tracks.map(t => t.file));
-
         const len = Math.floor((tracks.length + 1) / this.columnCount);
         if (len === 0) {
           return [[]];
@@ -49,5 +47,10 @@ export class TrackListComponent implements OnInit {
   addToCart(track: Track) {
     this.cartService.addToCart(track);
     this.toastService.sendMessage('More heat in the cart.', 'is-success');
+  }
+
+  removeFromCart(track: Track) {
+    this.cartService.removeFromCart(track);
+    this.toastService.sendMessage('Track removed.', 'is-warning');
   }
 }
