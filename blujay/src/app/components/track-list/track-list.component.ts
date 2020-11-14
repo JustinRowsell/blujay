@@ -13,7 +13,7 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 })
 export class TrackListComponent implements OnInit {
 
-  tracksArr$: Observable<Array<Track[]>>;
+  tracksArr$: Observable<Track[]>;
   columnCount = 3;
 
   constructor(private trackService: TrackService, private cartService: CartService,
@@ -21,27 +21,7 @@ export class TrackListComponent implements OnInit {
 
   ngOnInit(): void {
     this.trackService.loadTracks();
-    this.tracksArr$ = this.trackService.tracks$.pipe(
-      map(tracks => {
-        const len = Math.floor((tracks.length + 1) / this.columnCount);
-        if (len === 0) {
-          return [[]];
-        }
-        const rem = tracks.length % this.columnCount;
-
-        const chunks = [];
-        let i = 0;
-        const n = tracks.length;
-        while (i < (n - rem)) {
-          chunks.push(tracks.slice(i, i += len));
-        }
-
-        for (let j = 0; j < rem; j++) {
-          chunks[j].push(tracks[tracks.length - (j + 1)]);
-        }
-        return chunks;
-      })
-    );
+    this.tracksArr$ =this.trackService.tracks$;
   }
 
   addToCart(track: Track) {
