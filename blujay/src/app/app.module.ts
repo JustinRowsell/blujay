@@ -17,7 +17,6 @@ import { HomeGraphicComponent } from './components/home-graphic/home-graphic.com
 import { ToastComponent } from './components/toast/toast.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
-import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { StripePaymentComponent } from './components/stripe-payment/stripe-payment.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -50,7 +49,6 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgxAudioPlayerModule,
     NoopAnimationsModule,
     FormsModule,
     MatIconModule,

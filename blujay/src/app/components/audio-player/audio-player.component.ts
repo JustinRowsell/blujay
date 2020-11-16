@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Track } from 'ngx-audio-player';
+import { Component, OnInit } from '@angular/core';
+import { Track } from 'src/app/models/track';
+import { AudioPlayerService } from 'src/app/services/audio-player/audio-player.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-audio-player',
@@ -7,23 +9,14 @@ import { Track } from 'ngx-audio-player';
   styleUrls: ['./audio-player.component.scss']
 })
 
-// https://www.npmjs.com/package/ngx-audio-player
 export class AudioPlayerComponent implements OnInit {
+  track: Observable<Track>;
+  visible: Observable<boolean>;
 
-  @Input() displayTitle: boolean;
-  @Input() displayPlayList: boolean;
-  @Input() displayVolumeControls: boolean;
-  @Input() trackLink: string;
-  @Input() trackTitle: string;
-  playlist: Track[];
-
-  constructor() { }
+  constructor(private playerService: AudioPlayerService) {}
 
   ngOnInit(): void {
-    this.playlist = [ { title: this.trackTitle, link: this.trackLink }];
-  }
-
-  onEnded(event: any) {
-    console.log(event);
+    this.track = this.playerService.playingTrack;
+    this.visible = this.playerService.showPlayer;
   }
 }

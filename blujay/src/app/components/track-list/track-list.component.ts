@@ -5,6 +5,7 @@ import { Track } from 'src/app/models/track';
 import { map, tap } from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
+import { AudioPlayerService } from 'src/app/services/audio-player/audio-player.service';
 
 @Component({
   selector: 'app-track-list',
@@ -17,7 +18,7 @@ export class TrackListComponent implements OnInit {
   columnCount = 3;
 
   constructor(private trackService: TrackService, private cartService: CartService,
-              private toastService: ToastService) { }
+              private toastService: ToastService, private playerService: AudioPlayerService) { }
 
   ngOnInit(): void {
     this.trackService.loadTracks();
@@ -32,5 +33,9 @@ export class TrackListComponent implements OnInit {
   removeFromCart(track: Track) {
     this.cartService.removeFromCart(track);
     this.toastService.sendMessage('Track removed.', 'is-warning');
+  }
+
+  playTrack(track: Track) {
+    this.playerService.playTrack(track);
   }
 }

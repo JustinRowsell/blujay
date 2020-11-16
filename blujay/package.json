@@ -25,7 +25,6 @@
     "apollo-angular": "^2.0.3",
     "bulma": "^0.9.0",
     "graphql": "^15.0.0",
-    "ngx-audio-player": "^10.0.0",
     "npm": "^6.14.7",
     "rxjs": "~6.6.2",
     "stripe-angular": "^1.2.1",

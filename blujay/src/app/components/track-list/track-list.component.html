@@ -21,7 +21,7 @@
       <img src="{{track.image}}" class="track-image panel-icon"/>
       {{track.title}}
       <div class="buttons panel-buttons">
-        <button class="button is-info">
+        <button class="button is-info" (click)="playTrack(track)">
           <span class="icon is-small">
             <i class="fas fa-play"></i>
           </span>
@@ -37,49 +37,6 @@
           </span>
         </button>
       </div>
-      <!-- <app-audio-player [displayPlayList]="false" [displayTitle]="false"
-          [trackLink]="track.file" [trackTitle]="track.title" [displayVolumeControls]="false"
-          ></app-audio-player> -->
     </div>
   </article>
 </div>
-<!-- <div class="columns">
-  <div class="column" *ngFor="let arr of tracksArr$ | async">
-    <div class="card bj-card" *ngFor="let track of arr">
-      <div class="card-image">
-        <figure class="image is-3by2">
-          <img src="{{track.image}}" alt="Track image">
-        </figure>
-      </div>
-      <div class="card-content is-overlay">
-        <p class="buttons">
-          <button class="button is-dark" (click)="addToCart(track)" *ngIf="!track.inCart">
-            <span class="icon is-small">
-              <i class="fas fa-cart-plus"></i>
-            </span>
-          </button>
-          <button class="button is-dark" (click)="removeFromCart(track)" *ngIf="track.inCart">
-            <span class="icon is-small">
-              <i class="fas fa-minus"></i>
-            </span>
-          </button>
-        </p>
-      </div>
-      <div class="card-content">
-        <div class="content bj-content">
-          <p class="title is-6">
-            {{track.title}}
-          </p>
-          <p class="subtitle is-7">
-            {{track.description}}
-          </p>
-        </div>
-      </div>
-      <footer class="card-footer">
-        <app-audio-player style="width: 100%; max-width: 100%;" [displayPlayList]="false" [displayTitle]="false"
-          [trackLink]="track.file" [trackTitle]="track.title" [displayVolumeControls]="false"
-          ></app-audio-player>
-      </footer>
-    </div>
-  </div>
-</div> -->
