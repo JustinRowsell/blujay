@@ -24,8 +24,12 @@ $blujay-warn: mat-palette($mat-red);
 /* You can add global styles to this file, and also import other style files */
 .toast {
     position:absolute;
-    top:67px;
-    right:1%;
+    z-index: 1;
+}
+
+.is-centered {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bj-footer {

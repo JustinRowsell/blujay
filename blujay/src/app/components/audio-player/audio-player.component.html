@@ -1,18 +1,34 @@
 <footer class="footer" *ngIf="track">
-  <button class="button is-circular is-medium"
-    (click)="addToCart(track)"
-    *ngIf="!track.inCart">
-    <span class="icon">
-      <i class="fas fa-cart-plus"></i>
-    </span>
-  </button>
-  {{track?.title}}
-  <vime-player controls>
-    <vime-audio>
-      <source data-src="{{track.file}}" type="audio/mp3" />
-      <!-- <source> and <track> elements are placed here. -->
-    </vime-audio>
-    <!-- ... -->
-  </vime-player>
-  <button class="button is-info" (click)="hidePlayer()">Close</button>
+  <div class="level mb-1">
+    <span class="level-item">{{track?.title}}</span>
+  </div>
+  <div class="level">
+    <p class="level-item" *ngIf="!track.inCart">
+      <button class="button"
+      (click)="addToCart(track)">
+      <span class="icon">
+        <i class="fas fa-cart-plus"></i>
+      </span>
+      <span>Add to Cart</span>
+      </button>
+    </p>
+    <p class="level-item" *ngIf="track.inCart">
+      <button class="button is-success" disabled>
+      <span class="icon">
+        <i class="fas fa-check"></i>
+      </span>
+      <span>Added to Cart</span>
+      </button>
+    </p>
+    <p class="level-item">
+      <vime-player controls no-settings>
+        <vime-audio>
+          <source data-src="{{track.file}}" type="audio/mp3" />
+        </vime-audio>
+      </vime-player>
+    </p>
+    <p class="level-item">
+      <button class="button is-danger" (click)="hidePlayer()">Close</button>
+    </p>
+  </div>
 </footer>
