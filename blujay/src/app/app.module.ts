@@ -20,8 +20,7 @@ import { AudioPlayerComponent } from './components/audio-player/audio-player.com
 import { StripePaymentComponent } from './components/stripe-payment/stripe-payment.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { VimeModule } from '@vime/angular';
 
 const routes: Routes = [
   {
@@ -51,8 +50,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NoopAnimationsModule,
     FormsModule,
-    MatIconModule,
-    MatFormFieldModule
+    VimeModule
   ],
   providers: [{
     provide: APOLLO_OPTIONS,

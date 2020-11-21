@@ -1,3 +1,18 @@
-<footer class="footer" *ngIf="visible | async">
-  {{(track | async)?.title}}
+<footer class="footer" *ngIf="track">
+  <button class="button is-circular is-medium"
+    (click)="addToCart(track)"
+    *ngIf="!track.inCart">
+    <span class="icon">
+      <i class="fas fa-cart-plus"></i>
+    </span>
+  </button>
+  {{track?.title}}
+  <vime-player controls>
+    <vime-audio>
+      <source data-src="{{track.file}}" type="audio/mp3" />
+      <!-- <source> and <track> elements are placed here. -->
+    </vime-audio>
+    <!-- ... -->
+  </vime-player>
+  <button class="button is-info" (click)="hidePlayer()">Close</button>
 </footer>

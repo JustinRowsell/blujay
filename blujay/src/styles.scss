@@ -18,20 +18,8 @@ $blujay-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $blujay-warn: mat-palette($mat-red);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$blujay-theme: mat-light-theme((
-  color: (
-    primary: $blujay-primary,
-    accent: $blujay-accent,
-    warn: $blujay-warn,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($blujay-theme);
+/* Default theme. ~960B */
+@import '~@vime/core/themes/default.css';
 
 /* You can add global styles to this file, and also import other style files */
 .toast {
@@ -65,6 +53,8 @@ $blujay-theme: mat-light-theme((
 .bj-title {
   padding-bottom: 0;
 }
+
+.is-circular { border-radius: 50% !important; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

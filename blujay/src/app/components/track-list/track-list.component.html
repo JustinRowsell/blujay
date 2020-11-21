@@ -21,17 +21,17 @@
       <img src="{{track.image}}" class="track-image panel-icon"/>
       {{track.title}}
       <div class="buttons panel-buttons">
-        <button class="button is-info" (click)="playTrack(track)">
+        <button class="button is-circular" (click)="playTrack(track)">
           <span class="icon is-small">
             <i class="fas fa-play"></i>
           </span>
         </button>
-        <button class="button is-info" (click)="addToCart(track)" *ngIf="!track.inCart">
+        <button class="button is-circular" (click)="addToCart(track)" *ngIf="!track.inCart">
           <span class="icon is-small">
             <i class="fas fa-cart-plus"></i>
           </span>
         </button>
-        <button class="button is-info is-small" (click)="removeFromCart(track)" *ngIf="track.inCart">
+        <button class="button is-circular" (click)="removeFromCart(track)" *ngIf="track.inCart">
           <span class="icon is-small">
             <i class="fas fa-minus"></i>
           </span>
