@@ -21,11 +21,16 @@ import { StripePaymentComponent } from './components/stripe-payment/stripe-payme
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { VimeModule } from '@vime/angular';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 
@@ -41,7 +46,8 @@ const routes: Routes = [
     ToastComponent,
     BadgeComponent,
     AudioPlayerComponent,
-    StripePaymentComponent
+    StripePaymentComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

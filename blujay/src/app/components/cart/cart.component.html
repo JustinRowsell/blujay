@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="level">
+    <h1 class="title level-left">Shopping Cart</h1>
+    <h1 class="title is-5 level-left">Price</h1>
+  </div>
+
+  <article class="media" *ngFor="let item of cartItems$ | async">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="{{item.track.image}}">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{item.track.title}}</strong>
+          <br>
+          {{item.track.description}}
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-reply"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="media-right">
+      <span>${{item.track.price}}</span>
+      <!-- <button class="delete"></button> -->
+    </div>
+  </article>
+  <article>
+    <div >
+      <span style="margin-left: auto;">Subtotal: 19.32</span>
+    </div>
+  </article>
+</div>

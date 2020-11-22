@@ -1,6 +1,6 @@
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item">
+    <a class="navbar-item" [routerLink]="''">
       <img src="/assets/images/navbar-logo-wide.png" class="navbar-logo" >
     </a>
 
@@ -18,10 +18,12 @@
           <span title="Badge top right" class="badge">8</span>
           Button
         </button> -->
-        <app-badge [arr]="_cartService.cart"></app-badge>
-        <span class="icon is-light is-large">
-          <i class="fas fa-shopping-cart"></i>
-        </span>
+        <app-badge [arr]="cartService.cart"></app-badge>
+        <button class="button is-primary" [routerLink]="'/cart'">
+          <span class="icon is-light is-large">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+        </button>
       </div>
     </div>
   </div>
