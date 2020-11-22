@@ -1,6 +1,4 @@
-<div class="toast">
-    <div *ngIf="message$ | async; let message" [className]="'notification ' + message.stlye">
-        <button class="delete" (click)="clear()"></button>
-        {{message.content}}
-    </div>
+<div *ngIf="message$ | async; let message" [className]="'toast notification is-success ' + message.stlye">
+  <button class="delete" (click)="clear()"></button>
+  {{message.content}}
 </div>
