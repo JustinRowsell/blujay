@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="cartTotal !== 0">
   <div class="level">
     <h1 class="title level-left">Shopping Cart</h1>
     <h1 class="title is-5 level-left">Price</h1>
@@ -7,39 +7,32 @@
   <article class="media" *ngFor="let item of cartItems$ | async">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img src="{{item.track.image}}">
+        <img src="{{item.image}}">
       </p>
     </figure>
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>{{item.track.title}}</strong>
+          <strong>{{item.title}}</strong>
           <br>
-          {{item.track.description}}
+          {{item.description}}
         </p>
       </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-reply"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-heart"></i></span>
-          </a>
-        </div>
+      <nav class="level-left is-mobile">
+        <a class="level-item" (click)="removeFromCart(item)">
+          <span class="is-small">Remove from cart</span>
+        </a>
       </nav>
     </div>
-    <div class="media-right">
-      <span>${{item.track.price}}</span>
-      <!-- <button class="delete"></button> -->
+    <div class="level">
+      <span>${{item.price}}</span>
     </div>
   </article>
-  <article>
-    <div >
-      <span style="margin-left: auto;">Subtotal: 19.32</span>
-    </div>
+  <article class="level-right">
+    <span class="level-item">Subtotal: ${{cartTotal}}</span>
   </article>
+  <div class="level-right" style="margin-top: 8px;">
+    <button class="button is-primary">Checkout</button>
+  </div>
 </div>
+<app-cart-empty *ngIf="cartTotal === 0"></app-cart-empty>

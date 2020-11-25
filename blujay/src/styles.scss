@@ -22,11 +22,12 @@ $blujay-warn: mat-palette($mat-red);
 @import '~@vime/core/themes/default.css';
 
 /* You can add global styles to this file, and also import other style files */
+$toast-margin: 8px;
 .toast {
   position: fixed !important;
   z-index: 101;
-  top: 0;
-  right: 0;
+  top: $toast-margin;
+  right: $toast-margin;
   text-align: center;
   line-height: 2.5;
   overflow: hidden;

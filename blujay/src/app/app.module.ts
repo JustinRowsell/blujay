@@ -22,6 +22,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { VimeModule } from '@vime/angular';
 import { CartComponent } from './components/cart/cart.component';
+import { CartEmptyComponent } from './components/cart-empty/cart-empty.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'checkout',
+    component: StripePaymentComponent
   }
 ];
 
@@ -47,7 +52,8 @@ const routes: Routes = [
     BadgeComponent,
     AudioPlayerComponent,
     StripePaymentComponent,
-    CartComponent
+    CartComponent,
+    CartEmptyComponent
   ],
   imports: [
     BrowserModule,
