@@ -22,9 +22,7 @@ export class CartService {
 
   removeFromCart(track: Track) {
     const cartItems = this._cart.getValue();
-    console.log(cartItems);
-    const filtered = cartItems.filter(item => item.id !== item.id);
-    console.log(filtered);
+    const filtered = cartItems.filter(item => +item.id !== +track.id);
     this._trackService.trackRemovedFromCart(track.id);
     this._cart.next(filtered);
   }
