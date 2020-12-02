@@ -4,10 +4,11 @@
 
 /* You can add global styles to this file, and also import other style files */
 $toast-margin: 8px;
+$toast-top-margin: 66px;
 .toast {
   position: fixed !important;
   z-index: 101;
-  top: $toast-margin;
+  top: $toast-top-margin;
   right: $toast-margin;
   text-align: center;
   line-height: 2.5;

@@ -16,7 +16,6 @@ export class CartComponent implements OnInit, OnDestroy {
   constructor(private _cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartTotal = 0;
     this.cartItems$ = this._cartService.cart;
     this.cartItemSub = this.cartItems$.subscribe((cartItems) => {
       this.cartTotal = cartItems?.reduce((a, b) => +a + +b.price, 0) ?? 0;
