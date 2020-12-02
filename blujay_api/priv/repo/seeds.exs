@@ -24,7 +24,7 @@ Track |> Repo.delete_all
        image: "/assets/images/popsmoke.jpg", price: 10.0}
        |> Repo.insert!
 %Track{file: "https://blujay-free.s3.us-east-2.amazonaws.com/Mac_Miller-Salamander.mp3",
-       description: "That new new", title: "The butterfly effect", image: "/assets/images/bonfire1.jpg", price: 999.99}
+       description: "That new new", title: "The butterfly effect", image: "/assets/images/bonfire1.jpg", price: 99.99}
        |> Repo.insert!
 %Track{file: "https://blujay-free.s3.us-east-2.amazonaws.com/Mac_Miller-Salamander.mp3",
        description: "Anova one bruv.", title: "Fish and Chips", image: "/assets/images/bonfire2.jpg", price: 0.0}

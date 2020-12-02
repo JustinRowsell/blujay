@@ -11,26 +11,27 @@
         </span>
       </p>
     </div>
-    <div class="panel-block is-active" *ngFor="let track of tracksArr$ | async">
+    <a class="panel-block is-active" *ngFor="let track of tracksArr$ | async">
       <img src="{{track.image}}" class="track-image panel-icon"/>
       {{track.title}}
       <div class="buttons panel-buttons">
-        <button class="button is-circular" (click)="playTrack(track)">
-          <span class="icon is-small">
-            <i class="fas fa-play"></i>
-          </span>
-        </button>
-        <button class="button is-circular" (click)="addToCart(track)" *ngIf="!track.inCart">
-          <span class="icon is-small">
-            <i class="fas fa-cart-plus"></i>
-          </span>
-        </button>
         <button class="button is-circular" (click)="removeFromCart(track)" *ngIf="track.inCart">
           <span class="icon is-small">
             <i class="fas fa-minus"></i>
           </span>
         </button>
+        <button class="button is-circular" (click)="playTrack(track)">
+          <span class="icon is-small">
+            <i class="fas fa-play"></i>
+          </span>
+        </button>
+        <button class="button is-primary add-to-cart-width" (click)="addToCart(track)" *ngIf="!track.inCart">
+          <span class="icon is-small">
+            <i class="fas fa-cart-plus"></i>
+          </span>
+          <span>${{track.price}}</span>
+        </button>
       </div>
-    </div>
+    </a>
   </article>
 </div>
