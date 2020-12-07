@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { VimeModule } from '@vime/angular';
 import { CartComponent } from './components/cart/cart.component';
 import { CartEmptyComponent } from './components/cart-empty/cart-empty.component';
+import { TrackModalComponent } from './components/track-modal/track-modal.component';
 
 const routes: Routes = [
   {
@@ -53,7 +54,8 @@ const routes: Routes = [
     AudioPlayerComponent,
     StripePaymentComponent,
     CartComponent,
-    CartEmptyComponent
+    CartEmptyComponent,
+    TrackModalComponent
   ],
   imports: [
     BrowserModule,

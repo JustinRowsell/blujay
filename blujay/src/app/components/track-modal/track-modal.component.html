@@ -1,0 +1,35 @@
+<div class="outer" *ngIf="showMe$ | async">
+  <div class="middle">
+    <article  class="message is-primary inner">
+      <div class="message-header">
+        <p>{{track?.title}}</p>
+        <button (click)="closeModal()" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <div class="tile is-ancestor">
+          <div class="tile is-4 is-vertical is-parent">
+            <img class="modal-img" src="{{track?.image}}"/>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child box">
+              <span>${{track?.price}}</span>
+              <p class="is-info">{{track?.description}}</p>
+            </div>
+          </div>
+        </div>
+        <button class="button is-danger is-medium is-fullwidth" (click)="removeFromCart(track)" *ngIf="track.inCart">
+          <span class="icon">
+            <i class="fas fa-minus"></i>
+          </span>
+          <span>Remove</span>
+        </button>
+        <button class="button is-primary is-medium is-fullwidth" (click)="addToCart(track)" *ngIf="!track.inCart">
+          <span class="icon">
+            <i class="fas fa-cart-plus"></i>
+          </span>
+          <span>Add to Cart</span>
+        </button>
+      </div>
+    </article>
+  </div>
+</div>
