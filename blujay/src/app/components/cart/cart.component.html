@@ -32,7 +32,7 @@
     <span class="level-item">Subtotal: ${{cartTotal}}</span>
   </article>
   <div class="level-right" style="margin-top: 8px;">
-    <button class="button is-primary">Checkout</button>
+    <button class="button is-primary" [routerLink]="'/checkout'">Checkout</button>
   </div>
 </div>
 <app-cart-empty *ngIf="cartTotal === 0"></app-cart-empty>

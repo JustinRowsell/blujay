@@ -1,1 +1,10 @@
-<p>checkout works!</p>
+<form (ngSubmit)="createIntent()">
+  <input type="text"  placeholder="Jane Doe">
+  <ngx-stripe-card
+    [options]="cardOptions"
+    [elementsOptions]="elementsOptions"
+  ></ngx-stripe-card>
+  <button type="submit">
+    CREATE TOKEN
+  </button>
+</form>
