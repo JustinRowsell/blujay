@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
 import {
+  PaymentIntent,
   StripeCardElementOptions,
   StripeElementsOptions
 } from '@stripe/stripe-js';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
@@ -29,17 +31,16 @@ export class CheckoutComponent implements OnInit {
   };
 
   elementsOptions: StripeElementsOptions = {
-    locale: 'es'
+    locale: 'en'
   };
-  stripeService: StripeService;
-  constructor() { }
+  stripeService: StripeService ;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-
   }
 
   createIntent() {
-    // this.stripeService.retrieveSetupIntent
+    // this.stripeService.retrievePaymentIntent
   }
 
 }
