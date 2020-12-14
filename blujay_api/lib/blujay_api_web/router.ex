@@ -6,6 +6,12 @@ defmodule BlujayApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/payment", BlujayApiWeb do
+    pipe_through :browser # Use the default browser stack
+
+    get "/intent", PaymentController, :gen_intent
+  end
+
   scope "/" do
     pipe_through :api
 

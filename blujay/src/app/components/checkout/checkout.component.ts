@@ -15,28 +15,29 @@ import { HttpClient } from '@angular/common/http';
 export class CheckoutComponent implements OnInit {
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
-  cardOptions: StripeCardElementOptions = {
-    style: {
-      base: {
-        iconColor: '#666EE8',
-        color: '#31325F',
-        fontWeight: '300',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSize: '18px',
-        '::placeholder': {
-          color: '#CFD7E0'
-        }
-      }
-    }
-  };
-
-  elementsOptions: StripeElementsOptions = {
-    locale: 'en'
-  };
+  cardOptions: StripeCardElementOptions;
+  elementsOptions: StripeElementsOptions;
   stripeService: StripeService ;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.elementsOptions= {
+      locale: 'en'
+    };
+    this.cardOptions = {
+      style: {
+        base: {
+          iconColor: '#666EE8',
+          color: '#31325F',
+          fontWeight: '300',
+          fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+          fontSize: '18px',
+          '::placeholder': {
+            color: '#CFD7E0'
+          }
+        }
+      }
+    };
   }
 
   createIntent() {

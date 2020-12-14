@@ -47,6 +47,7 @@ defmodule BlujayApi.MixProject do
       {:absinthe_relay, "~> 1.4"},
       {:absinthe_phoenix, "~> 1.4.2"},
       {:cors_plug, "~> 1.5"},
+      {:stripity_stripe, git: "https://github.com/code-corps/stripity_stripe", ref: "8c091d4278d29a917bacef7bb2f0606317fcc025"}
     ]
   end
 
