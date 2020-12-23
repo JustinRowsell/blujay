@@ -1,11 +1,14 @@
 import {Apollo, gql} from 'apollo-angular';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { Track } from 'src/app/models/track';
 
 import { map } from 'rxjs/operators';
 
 import { ToastService } from '../toast/toast.service';
+import { HttpClient } from '@angular/common/http';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,35 +16,16 @@ import { ToastService } from '../toast/toast.service';
 export class TrackService {
   private _tracks: BehaviorSubject<Track[]> = new BehaviorSubject([]);
   tracks$: Observable<Track[]> = this._tracks.asObservable();
+  trackSub: Subscription;
 
-  constructor(private _apollo: Apollo, private _toastService: ToastService) { }
+  constructor(private _toastService: ToastService, private _http: HttpClient) { }
 
   loadTracks() {
-    this._apollo
-    .watchQuery({
-      query: gql`
-        {
-          allTracks{
-            id,
-            description,
-            file,
-            title,
-            price,
-            image
-          }
-        }
-      `,
-    })
-    .valueChanges.pipe(
-      map(v => v.data),
-      map((v: any) => v.allTracks)
-    ).subscribe((tracks: Track[]) => {
-      // copy tracks so objects are mutable
-      const deepCopyTracks = tracks.map(t => Object.assign({}, t, {inCart: false}));
-      this._tracks.next(deepCopyTracks);
-    }, (err) => {
+    this.trackSub = this._http.get(`${environment.api}/tracks`).subscribe((tracks) => {
+      this._tracks.next(tracks as Track[]);
+    }, (error) => {
       this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.', 'is-danger');
-      console.error(err);
+      console.error(error);
     });
   }
 
