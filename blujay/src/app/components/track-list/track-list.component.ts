@@ -27,12 +27,14 @@ export class TrackListComponent implements OnInit {
     this.tracksArr$ =this._trackService.tracks$;
   }
 
-  addToCart(track: Track) {
+  addToCart(event: any, track: Track) {
+    event.stopPropagation();
     this._cartService.addToCart(track);
     this._toastService.sendMessage('More heat in the cart.', 'is-success');
   }
 
-  removeFromCart(track: Track) {
+  removeFromCart(event: any, track: Track) {
+    event.stopPropagation();
     this._cartService.removeFromCart(track);
     this._toastService.sendMessage('Track removed.', 'is-warning');
   }
