@@ -13,9 +13,10 @@ config :blujay_api,
 # Configures the endpoint
 config :blujay_api, BlujayApiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "CVwGQaZ3wJ+5KRALXoWK3sdlclnu5JMqoA1wnxtH6Ghe42PRP25IQdgUQBIA5RYs",
-  render_errors: [view: BlujayApiWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: BlujayApi.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "XHg232WqpYYC8m6qUvENgOFxgtl1hRLvRa8dWSyIBxkerVaCZE/N85fcxPyhrIja",
+  render_errors: [view: BlujayApiWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: BlujayApi.PubSub,
+  live_view: [signing_salt: "maH5g41L"]
 
 # Configures Elixir's Logger
 config :logger, :console,

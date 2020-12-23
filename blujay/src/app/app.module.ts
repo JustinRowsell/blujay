@@ -51,18 +51,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     VimeModule,
     NgxStripeModule.forRoot('pk_test_51HgjeuFVImSmLfhbqA6cMTbmM2fzhhwdOgnsLK2r7nHEcCF2aQc8xvvaiYJ0KDSFQHwg5CCHxZSS3Yj0GMoT3TSx00puBCO4Ee')
   ],
-  providers: [{
-    provide: APOLLO_OPTIONS,
-    useFactory: (httpLink: HttpLink) => {
-      return {
-        cache: new InMemoryCache(),
-        link: httpLink.create({
-          uri: environment.api
-        })
-      };
-    },
-    deps: [HttpLink]
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
