@@ -17,6 +17,7 @@ defmodule BlujayApi.Tracks do
     """
     def list_tracks do
       Repo.all(Track)
+      |> Enum.map(&%{description: &1.description, file: &1.file, image: &1.image, price: &1.price, title: &1.title})
     end
   
     @doc """

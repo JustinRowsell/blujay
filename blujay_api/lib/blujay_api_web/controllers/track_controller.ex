@@ -4,12 +4,12 @@ defmodule BlujayApiWeb.TrackController do
 
     def index(conn, _params) do
         tracks = Tracks.list_tracks()
-        json(conn, tracks)
+        render conn, "show-all.json", data: tracks
     end
 
     def new(conn, args) do
         case Tracks.create_track(args) do
-            {:ok, track} -> {:ok, track}
+            {:ok, track} -> json(conn, track)
             error -> {:error, "failed"}
         end
     end
