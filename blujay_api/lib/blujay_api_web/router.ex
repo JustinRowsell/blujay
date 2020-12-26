@@ -18,6 +18,8 @@ defmodule BlujayApiWeb.Router do
     pipe_through :api
 
     get "/tracks", TrackController, :index 
+
+    get "/payment/new", PaymentController, :new
   end
 
 
