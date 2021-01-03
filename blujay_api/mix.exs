@@ -45,6 +45,7 @@ defmodule BlujayApi.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:cors_plug, "~> 1.5"},
       {:httpoison, "~> 1.6"},
+      {:poison, "~> 4.0"},
     ]
   end
 
