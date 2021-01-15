@@ -3,6 +3,6 @@ defmodule BlujayApiWeb.PaymentView do
     require Logger
 
     def render("new.json", %{data: data}) do
-        Map.take(data, [:amount])
+        Map.take(data, ["created", "amount", "id", "currency", "client_secret"])
     end
 end

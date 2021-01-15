@@ -1,6 +1,7 @@
 defmodule BlujayApiWeb.PaymentController do
     use BlujayApiWeb, :controller
     require Poison
+    require Logger
 
     def index(conn, _params) do
         render conn, "show-all.json", data: %{}
@@ -15,7 +16,7 @@ defmodule BlujayApiWeb.PaymentController do
             {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
                 render conn, "new.json", data: Poison.decode!(body)
             {:error, %HTTPoison.Error{reason: reason}} ->
-                 render conn, "error.json", data: reason
+                 render conn, "error.json", Poison.decode!(reason)
         end
     end
 end

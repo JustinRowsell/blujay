@@ -24,6 +24,7 @@ import { CartEmptyComponent } from './components/cart-empty/cart-empty.component
 import { TrackModalComponent } from './components/track-modal/track-modal.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxStripeModule } from 'ngx-stripe';
+import { BjButtonComponent } from './components/toolbox/bj-button/bj-button.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { NgxStripeModule } from 'ngx-stripe';
     CartComponent,
     CartEmptyComponent,
     TrackModalComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    BjButtonComponent,
+    PaymentIntentComponent
   ],
   imports: [
     BrowserModule,

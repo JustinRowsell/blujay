@@ -2,7 +2,7 @@ defmodule BlujayApiWeb.Router do
   use BlujayApiWeb, :router
 
   pipeline :api do
-    plug CORSPlug, origin: "http://localhost:4200"
+    plug CORSPlug, origin: "https://localhost:4200"
     plug :accepts, ["json"]
   end
 
