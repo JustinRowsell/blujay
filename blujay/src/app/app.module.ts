@@ -42,8 +42,7 @@ import { BjButtonComponent } from './components/toolbox/bj-button/bj-button.comp
     CartEmptyComponent,
     TrackModalComponent,
     CheckoutComponent,
-    BjButtonComponent,
-    PaymentIntentComponent
+    BjButtonComponent
   ],
   imports: [
     BrowserModule,
