@@ -1,4 +1,3 @@
-import {Apollo, gql} from 'apollo-angular';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { Track } from 'src/app/models/track';
