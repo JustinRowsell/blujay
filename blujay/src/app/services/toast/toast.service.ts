@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Message } from 'src/app/models/message';
 import { BehaviorSubject } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastComponent } from 'src/app/components/toast/toast.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +13,10 @@ export class ToastService {
   message$ = this.message.asObservable();
   toastTimer: NodeJS.Timeout;
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   sendMessage(content: string, style: string) {
-    if (this.toastTimer)
-      clearTimeout(this.toastTimer);
-
-    const msg = new Message(content, style);
-    this.message.next(msg);
-    this.toastTimer = setTimeout(() => { this.clearMessage(); }, 3000);
+    this._snackBar.openFromComponent(ToastComponent);
   }
 
   clearMessage() {

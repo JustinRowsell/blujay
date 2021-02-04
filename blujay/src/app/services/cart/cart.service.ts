@@ -11,6 +11,9 @@ export class CartService {
   private _cart: BehaviorSubject<Track[]> = new BehaviorSubject([]);
   cart = this._cart.asObservable();
 
+  private _total: BehaviorSubject<number> = new BehaviorSubject(0);
+  total = this._total.asObservable();
+
   constructor(private _trackService: TrackService) { }
 
   addToCart(track: Track): void {
@@ -26,4 +29,12 @@ export class CartService {
     this._trackService.trackRemovedFromCart(track.id);
     this._cart.next(filtered);
   }
+
+  updateTotal() {
+    const cart = this._cart.getValue();
+    let total = 0;
+    cart.forEach(track => { total += track.price; })
+    this._total.next(total);
+  }
+
 }

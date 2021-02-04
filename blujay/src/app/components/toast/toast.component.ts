@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from 'src/app/models/message';
-import { ToastService } from 'src/app/services/toast/toast.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-toast',
@@ -9,16 +6,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./toast.component.scss']
 })
 export class ToastComponent implements OnInit {
-  message$: Observable<Message>;
-  style: string;
 
-  constructor(private toastService: ToastService) { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.message$ = this.toastService.message$;
-  }
-
-  clear(): void {
-    this.toastService.clearMessage();
   }
 }

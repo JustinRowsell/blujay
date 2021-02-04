@@ -22,6 +22,8 @@ import { TrackModalComponent } from './components/track-modal/track-modal.compon
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { BjButtonComponent } from './components/toolbox/bj-button/bj-button.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { BjButtonComponent } from './components/toolbox/bj-button/bj-button.comp
     CartEmptyComponent,
     TrackModalComponent,
     CheckoutComponent,
-    BjButtonComponent
+    BjButtonComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { BjButtonComponent } from './components/toolbox/bj-button/bj-button.comp
     NoopAnimationsModule,
     FormsModule,
     VimeModule,
+    MatSnackBarModule,
     NgxStripeModule.forRoot('pk_test_51HgjeuFVImSmLfhbqA6cMTbmM2fzhhwdOgnsLK2r7nHEcCF2aQc8xvvaiYJ0KDSFQHwg5CCHxZSS3Yj0GMoT3TSx00puBCO4Ee')
   ],
   providers: [],
