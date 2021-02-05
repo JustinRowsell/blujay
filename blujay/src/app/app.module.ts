@@ -23,7 +23,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxStripeModule } from 'ngx-stripe';
 import { BjButtonComponent } from './components/toolbox/bj-button/bj-button.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
     NgxStripeModule.forRoot('pk_test_51HgjeuFVImSmLfhbqA6cMTbmM2fzhhwdOgnsLK2r7nHEcCF2aQc8xvvaiYJ0KDSFQHwg5CCHxZSS3Yj0GMoT3TSx00puBCO4Ee')
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,6 +16,7 @@ export class ToastService {
   constructor(private _snackBar: MatSnackBar) { }
 
   sendMessage(content: string, style: string) {
+    // https://stackoverflow.com/questions/45439313/angular-2-4-how-to-style-angular-material-design-snackbar
     this._snackBar.openFromComponent(ToastComponent);
   }
 

@@ -38,20 +38,6 @@ $blujay-theme: mat-light-theme((
 @import '~@vime/core/themes/default.css';
 
 /* You can add global styles to this file, and also import other style files */
-$toast-margin: 8px;
-$toast-top-margin: 66px;
-.toast {
-  position: fixed !important;
-  z-index: 101;
-  top: $toast-top-margin;
-  right: $toast-margin;
-  text-align: center;
-  line-height: 2.5;
-  overflow: hidden;
-  -webkit-box-shadow: 0 0 5px black;
-  -moz-box-shadow:    0 0 5px black;
-  box-shadow:         0 0 5px black;
-}
 
 .is-centered {
   margin-left: auto;
