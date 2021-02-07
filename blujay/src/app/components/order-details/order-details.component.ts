@@ -12,7 +12,7 @@ export class OrderDetailsComponent implements OnInit {
   constructor(private _cartService: CartService) { }
 
   ngOnInit(): void {
-    this.orderTotal$ = this._cartService.total;
+    this.orderTotal$ = this._cartService.total$;
     this._cartService.updateTotal();
   }
 

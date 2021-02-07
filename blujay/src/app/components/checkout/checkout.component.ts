@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
 import {
   StripeCardElementOptions,
@@ -6,19 +6,24 @@ import {
 } from '@stripe/stripe-js';
 import { HttpClient } from '@angular/common/http';
 import { PaymentService } from 'src/app/services/payment/payment.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit, OnDestroy {
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
   cardOptions: StripeCardElementOptions;
   elementsOptions: StripeElementsOptions;
   stripeService: StripeService ;
-  constructor(private http: HttpClient, private _paymentService: PaymentService) { }
+
+  totalSub: Subscription;
+
+  constructor(private _cartService: CartService, private _paymentService: PaymentService) { }
 
   ngOnInit(): void {
     this.elementsOptions= {
@@ -42,7 +47,16 @@ export class CheckoutComponent implements OnInit {
   }
 
   createIntent() {
-    this._paymentService.generateIntent()
+    this.totalSub = this._cartService.total$.subscribe((total) => {
+      if (total === 0) {
+        return;
+      }
+      this._paymentService.generateIntent(total);
+    });
+  }
+
+  ngOnDestroy() {
+    this.totalSub.unsubscribe();
   }
 
 }

@@ -9,10 +9,10 @@ import { TrackService } from '../track/track.service';
 export class CartService {
 
   private _cart: BehaviorSubject<Track[]> = new BehaviorSubject([]);
-  cart = this._cart.asObservable();
+  cart$ = this._cart.asObservable();
 
   private _total: BehaviorSubject<number> = new BehaviorSubject(0);
-  total = this._total.asObservable();
+  total$ = this._total.asObservable();
 
   constructor(private _trackService: TrackService) { }
 

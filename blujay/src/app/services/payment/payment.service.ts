@@ -14,12 +14,12 @@ export class PaymentService {
   intentSub: Subscription;
   constructor(private _http: HttpClient, private _toastService: ToastService) { }
 
-  generateIntent(): Observable<PaymentIntent> | void {
-    this.intentSub = this._http.get(`${environment.api}/payment/new`).subscribe((intent) => {
+  generateIntent(total: number): Observable<PaymentIntent> | void {
+    this.intentSub = this._http.get(`${environment.api}/payment/new?amount=${total * 1000}`).subscribe((intent) => {
       console.log(intent);
       this._intent.next(intent as PaymentIntent);
     }, (error) => {
-      this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.');
+      this._toastService.sendMessage('Unable to start checkout. Try again later.');
       console.error(error);
     });
   }
