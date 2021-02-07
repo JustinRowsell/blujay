@@ -38,6 +38,7 @@ export class CheckoutComponent implements OnInit {
         }
       }
     };
+    this.createIntent();
   }
 
   createIntent() {

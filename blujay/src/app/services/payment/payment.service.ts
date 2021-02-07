@@ -19,7 +19,7 @@ export class PaymentService {
       console.log(intent);
       this._intent.next(intent as PaymentIntent);
     }, (error) => {
-      this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.', 'is-danger');
+      this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.');
       console.error(error);
     });
   }

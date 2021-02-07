@@ -6,7 +6,6 @@ import { map } from 'rxjs/operators';
 
 import { ToastService } from '../toast/toast.service';
 import { HttpClient } from '@angular/common/http';
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,7 +22,7 @@ export class TrackService {
     this.trackSub = this._http.get(`${environment.api}/tracks`).subscribe((tracks) => {
       this._tracks.next(tracks as Track[]);
     }, (error) => {
-      this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.', 'is-danger');
+      this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.');
       console.error(error);
     });
   }

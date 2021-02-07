@@ -35,11 +35,11 @@ export class TrackModalComponent implements OnInit, OnDestroy {
 
   addToCart(track: Track) {
     this._cartService.addToCart(track);
-    this._toastService.sendMessage('More heat in the cart.', 'is-success');
+    this._toastService.sendMessage('More heat in the cart.');
   }
 
   removeFromCart(track: Track) {
     this._cartService.removeFromCart(track);
-    this._toastService.sendMessage('Track removed.', 'is-warning');
+    this._toastService.sendMessage('Track removed.');
   }
 }

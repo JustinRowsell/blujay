@@ -30,7 +30,7 @@ export class AudioPlayerComponent implements OnInit {
 
   addToCart(track: Track) {
     this.cartService.addToCart(track);
-    this.toastService.sendMessage('More heat in the cart.', 'is-success');
+    this.toastService.sendMessage('More heat in the cart.');
   }
 
   hidePlayer() {
