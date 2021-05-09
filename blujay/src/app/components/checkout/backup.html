@@ -22,9 +22,13 @@
       </div>
     </div>
     <div class="field">
+    <div class="field">
       <label class="label">Credit Card</label>
       <div class="control">
-
+        <ngx-stripe-card
+          [options]="cardOptions"
+          [elementsOptions]="elementsOptions"
+        ></ngx-stripe-card>
       </div>
     </div>
     <div class="field is-grouped">
@@ -32,6 +36,7 @@
         <app-bj-button [text]="'Make Payment'" [type]="'submit'" [classes]="'button is-link'"></app-bj-button>
       </div>
     </div>
+  </div>
   </form>
 </section>
 <app-order-details></app-order-details>
