@@ -1,17 +1,19 @@
-import { Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { Controller, Get, LoggerService, Param, Post, Query, Req } from '@nestjs/common';
 import { AppService } from './app.service';
 import Request from 'express';
+import { ConfigService } from '@nestjs/config';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService,
+    private readonly configService: ConfigService) {}
 
   @Get()
   async getNewSession(
-    @Param('amount') amount: number,
-    @Param('name') name: string,
+    @Query('amount') amount: number,
+    @Query('name') name: string,
   ): Promise<string> {
-    return this.appService.getNewCheckoutSession(name, amount);
+    return this.appService.getNewCheckoutSession(name, amount, this.configService.get<string>('WEBSITE_URL'));
   }
 
   @Get()
