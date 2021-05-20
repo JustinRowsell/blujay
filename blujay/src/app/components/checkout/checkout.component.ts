@@ -4,10 +4,10 @@ import {
   StripeCardElementOptions,
   StripeElementsOptions
 } from '@stripe/stripe-js';
-import { HttpClient } from '@angular/common/http';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -43,15 +43,14 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         }
       }
     };
-    this.createIntent();
   }
 
-  createIntent() {
+  createIntent(f: NgForm) {
     this.totalSub = this._cartService.total$.subscribe((total) => {
       if (total === 0) {
         return;
       }
-      this._paymentService.generateIntent(total);
+      this._paymentService.generateIntent(total, f.value.fullName);
     });
   }
 

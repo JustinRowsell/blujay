@@ -19,7 +19,7 @@ export class TrackService {
   constructor(private _toastService: ToastService, private _http: HttpClient) { }
 
   loadTracks() {
-    this.trackSub = this._http.get(`${environment.api}/tracks`).subscribe((tracks) => {
+    this.trackSub = this._http.get(`${environment.coreApi}/tracks`).subscribe((tracks) => {
       this._tracks.next(tracks as Track[]);
     }, (error) => {
       this._toastService.sendMessage('We can\'t load the tracks right now. Try again later.');

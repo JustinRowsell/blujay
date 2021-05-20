@@ -9,15 +9,15 @@ import { ToastService } from '../toast/toast.service';
   providedIn: 'root'
 })
 export class PaymentService {
-  private _intent: BehaviorSubject<PaymentIntent> = new BehaviorSubject(null);
-  intent$: Observable<PaymentIntent> = this._intent.asObservable();
+  private _intentId: BehaviorSubject<string> = new BehaviorSubject('');
+  intentId$: Observable<string> = this._intentId.asObservable();
   intentSub: Subscription;
   constructor(private _http: HttpClient, private _toastService: ToastService) { }
 
-  generateIntent(total: number): Observable<PaymentIntent> | void {
-    this.intentSub = this._http.get(`${environment.api}/payment/new?amount=${total * 1000}`).subscribe((intent) => {
-      console.log(intent);
-      this._intent.next(intent as PaymentIntent);
+  generateIntent(total: number, name:string): Observable<PaymentIntent> | void {
+    this.intentSub = this._http.get<string>(`${environment.paymentApi}/payment/new?name=${name}&amount=${total * 1000}`).subscribe((intentId) => {
+      console.log(intentId);
+      this._intentId.next(intentId);
     }, (error) => {
       this._toastService.sendMessage('Unable to start checkout. Try again later.');
       console.error(error);

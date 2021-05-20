@@ -8,7 +8,7 @@
   </div>
 </section>
 <section class="container" style="padding-bottom: 8px;">
-  <form (ngSubmit)="createIntent()">
+  <form #f="ngForm" (ngSubmit)="createIntent(f)" novalidate>
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
@@ -19,12 +19,6 @@
       <label class="label">Email</label>
       <div class="control">
         <input class="input" type="text" placeholder="Email">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Credit Card</label>
-      <div class="control">
-        <button id="checkout-button">Checkout</button>
       </div>
     </div>
     <div class="field is-grouped">
