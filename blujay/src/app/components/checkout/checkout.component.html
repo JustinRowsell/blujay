@@ -8,11 +8,11 @@
   </div>
 </section>
 <section class="container" style="padding-bottom: 8px;">
-  <form #f="ngForm" (ngSubmit)="createIntent(f)" novalidate>
+  <form (ngSubmit)="createIntent()" novalidate>
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Full Name">
+        <input class="input" type="text" placeholder="Full Name" #fullName>
       </div>
     </div>
     <div class="field">

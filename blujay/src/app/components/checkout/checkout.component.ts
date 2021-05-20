@@ -23,6 +23,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   totalSub: Subscription;
 
+  fullName: string = '';
   constructor(private _cartService: CartService, private _paymentService: PaymentService) { }
 
   ngOnInit(): void {
@@ -45,12 +46,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     };
   }
 
-  createIntent(f: NgForm) {
+  createIntent() {
     this.totalSub = this._cartService.total$.subscribe((total) => {
       if (total === 0) {
         return;
       }
-      this._paymentService.generateIntent(total, f.value.fullName);
+      this._paymentService.generateIntent(total,this.fullName);
     });
   }
 
