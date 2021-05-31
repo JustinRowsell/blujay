@@ -47,11 +47,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   createIntent() {
+    alert("hi");
     this.totalSub = this._cartService.total$.subscribe((total) => {
       if (total === 0) {
         return;
       }
-      this._paymentService.generateIntent(total,this.fullName);
+      console.log(this.fullName);
+      this._paymentService.generateIntent(total,this.fullName + Date.now().toString());
     });
   }
 
