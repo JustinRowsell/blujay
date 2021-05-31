@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "postgres",
+  "database": "blujay_api_dev",
+  "entities": [
+    "**/*.entity{.ts,.js}"
+  ],
+  "migrationsTableName": "migration",
+  "migrations": [
+    "src/migration/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  },
+  "ssl": false
+}

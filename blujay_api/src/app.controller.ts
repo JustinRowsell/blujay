@@ -1,19 +1,18 @@
 import { Controller, Get, LoggerService, Param, Post, Query, Req } from '@nestjs/common';
 import { AppService } from './app.service';
 import Request from 'express';
-import { ConfigService } from '@nestjs/config';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService,
-    private readonly configService: ConfigService) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   async getNewSession(
     @Query('amount') amount: number,
     @Query('name') name: string,
+    @Query('redirectUri') redirectUri: string
   ): Promise<string> {
-    return this.appService.getNewCheckoutSession(name, amount, this.configService.get<string>('WEBSITE_URL'));
+    return this.appService.getNewCheckoutSession(name, amount, redirectUri);
   }
 
   @Get()
